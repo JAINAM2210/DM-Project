@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting image
+
+\begin{document}
+
+\title{DM Project}
+\author{Heer Shah}
+\date{\today}
+\maketitle
+
+\section*{Contributors}
+
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Name} & \textbf{Contributions} \\
+\hline
+Heer Shah & x \\
+\hline
+Heman Rajput & y \\
+\hline
+Swayam Hingu & z \\
+\hline
+Jianam Patel & a \\
+\hline
+Tasmay Patel & b\\
+\hline
+Dishank Thakkar & c\\
+\hline
+\end{tabular}
+
+\end{document}
