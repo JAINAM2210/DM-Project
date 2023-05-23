@@ -97,38 +97,40 @@
 
   <!-- Header Section -->
   <div class="header_section">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="logo">
-        <a href="index.html">
-          <img src="images/logo.png">
-        </a>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto" style="margin-left: 150px;">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="project.html">PROJECT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">SERVICES</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="download.html">DOWNLOAD</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contributors.html">CONTRIBUTORS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">CONTACT US</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="logo">
+          <a href="index.html"><img src="images/logo.png"></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto" style="margin-left: 150px;">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="project.html">PROJECT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">SERVICES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="download.html">DOWNLOAD</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contributors.html">CONTRIBUTORS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">CONTACT US</a>
+            </li>
+          </ul>
+        </div>
+        
+      </nav>
+    </div>
   </div>
 
  <!-- File Conversion Buttons -->
@@ -138,6 +140,7 @@
       <button onclick="convertToBin()">Convert .mp3 to .bin</button>
       <a id="downloadBin" href="#" download><button class="download_btn">Download</button></a>
     </div>
+    
   </div>
   <div class="row">
     <div class="col-md-12">
@@ -224,6 +227,100 @@
 </body>
 
 <!-- JavaScript files -->
+<script>
+  // Function to handle the file selection and conversion
+  function handleFile(file, conversionType) {
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+      const result = event.target.result;
+
+      // Perform the conversion based on the selected type
+      if (conversionType === 'mp3ToBin') {
+        // Conversion logic for mp3 to .bin
+        // ...
+
+      } else if (conversionType === 'binToDNA') {
+        // Conversion logic for .bin to .dna
+        // ...
+
+      } else if (conversionType === 'dnaToJPEG') {
+        // Conversion logic for .dna to .jpeg
+        // ...
+
+      } else if (conversionType === 'dnaToBin') {
+        // Conversion logic for .dna to .bin
+        // ...
+
+      } else if (conversionType === 'binToMp3') {
+        // Conversion logic for .bin to mp3
+        // ...
+      }
+    };
+
+    reader.readAsDataURL(file);
+  }
+
+  // File selection and conversion functions
+  function convertToBin() {
+    const input = document.createElement('input');
+    input.type = 'file';
+
+    input.onchange = function(event) {
+      const file = event.target.files[0];
+      handleFile(file, 'mp3ToBin');
+    };
+
+    input.click();
+  }
+
+  function convertToDNA() {
+    const input = document.createElement('input');
+    input.type = 'file';
+
+    input.onchange = function(event) {
+      const file = event.target.files[0];
+      handleFile(file, 'binToDNA');
+    };
+
+    input.click();
+  }
+
+  function convertToJPEG() {
+    const input = document.createElement('input');
+    input.type = 'file';
+
+    input.onchange = function(event) {
+      const file = event.target.files[0];
+      handleFile(file, 'dnaToJPEG');
+    };
+
+    input.click();
+  }
+  function convertFromDNA() {
+    const input = document.createElement('input');
+    input.type = 'file';
+
+    input.onchange = function(event) {
+      const file = event.target.files[0];
+      handleFile(file, 'dnaToBin');
+    };
+
+    input.click();
+  }
+
+  function convertFromBin() {
+    const input = document.createElement('input');
+    input.type = 'file';
+
+    input.onchange = function(event) {
+      const file = event.target.files[0];
+      handleFile(file, 'binToMp3');
+    };
+
+    input.click();
+  }
+  </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
