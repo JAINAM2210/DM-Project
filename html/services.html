@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .conversion_buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+  
+    .conversion_buttons button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+  
+    .conversion_buttons button:hover {
+      background-color: darkgreen;
+    }
+  
+    .conversion_buttons .download-button {
+      background-color: transparent;
+      color: green;
+      border: 1px solid green;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      text-decoration: none;
+    }
+  
+    .conversion_buttons .download-button:hover {
+      background-color: green;
+      color: white;
+    }
+  </style>
+  
+  <!-- Basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+  <!-- Site Metas -->
+  <title>Services</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/fevicon.png" type="image/gif" />
+
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+  <!-- FancyBox -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body>
+  <!-- Header Top Section -->
+  <div class="header_top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="call_text">
+            <a href="#"><img src="images/mail-icon.png"><span class="call_text_left">Demo@gmail.com</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <div class="header_section">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.png">
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="margin-left: 150px;">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="project.html">PROJECT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">SERVICES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="download.html">DOWNLOAD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contributors.html">CONTRIBUTORS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">CONTACT US</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+ <!-- File Conversion Buttons -->
+<div class="conversion_buttons">
+  <div class="row">
+    <div class="col-md-12">
+      <button onclick="convertToBin()">Convert .mp3 to .bin</button>
+      <a id="downloadBin" href="#" download><button class="download_btn">Download</button></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button onclick="convertToDNA()">Convert .bin to .dna</button>
+      <a id="downloadDNA" href="#" download><button class="download_btn">Download</button></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button onclick="convertToJPEG()">Convert .dna to .jpeg</button>
+      <a id="downloadJPEG" href="#" download><button class="download_btn">Download</button></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button onclick="convertFromDNA()">Convert .bin from .dna</button>
+      <a id="downloadFromDNA" href="#" download><button class="download_btn">Download</button></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button onclick="convertFromBin()">Convert .mp3 from .bin</button>
+      <a id="downloadFromBin" href="#" download><button class="download_btn">Download</button></a>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Testimonials Section -->
+  <div class="client_section layout_padding">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <h1 class="services_text custom_main">Testimonials</h1>
+      </div>
+    </div>
+  </div>
+  <div class="client_section_2 layout_padding">
+    <div class="container">
+      <div id="main_slider" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="client_main"><img src="images/img-3.png"></div>
+            <div class="client_main_1">
+              <h1 class="kamlioo_text">John Doe</h1>
+              <p class="ipsum_text">"Converting music to DNA has opened up a whole new realm of possibilities for me. It's fascinating to see how the essence of music can be stored in such a unique way."</p>
+              <div class="quote_icon"><img src="images/quote-icon.png"></div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="client_main"><img src="images/img-3.png"></div>
+            <div class="client_main_1">
+              <h1 class="kamlioo_text">Jane Smith</h1>
+              <p class="ipsum_text">"The concept of converting music into DNA is mind-blowing. It adds a whole new dimension to the preservation and sharing of musical compositions. I'm truly impressed."</p>
+              <div class="quote_icon"><img src="images/quote-icon.png"></div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="client_main"><img src="images/img-3.png"></div>
+            <div class="client_main_1">
+              <h1 class="kamlioo_text">Sarah Johnson</h1>
+              <p class="ipsum_text">"I never imagined that music could be represented in the form of DNA. It's a brilliant idea, and I'm excited to explore the potential applications of this technology."</p>
+              <div class="quote_icon"><img src="images/quote-icon.png"></div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+          <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+          <i class="fa fa-angle-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Copyright -->
+  <div class="copyright_section">
+    <div class="container">
+      <p class="copyright">2023 All Rights Reserved.</p>
+    </div>
+  </div>
+
+</body>
+
+<!-- JavaScript files -->
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/plugin.js"></script>
+<!-- Sidebar -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/custom.js"></script>
+<!-- JavaScript -->
+<script src="js/owl.carousel.js"></script>
+<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+</html>
