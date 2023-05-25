@@ -36,6 +36,9 @@ def mp3_to_bin():
         os.rename(file_path, output_path)
         messagebox.showinfo("Conversion Successful", "MP3 to BIN conversion completed. Output file saved at: " + output_path)
         update_progress(progress_mp3_to_bin)
+        progress_mp3_to_bin['value'] = 0
+            
+            
 
 # Convert BIN to DNA
 def bin_to_dna():
@@ -52,6 +55,7 @@ def bin_to_dna():
         
         messagebox.showinfo("Conversion Successful", "BIN to DNA conversion completed. Output file saved at: " + output_path)
         update_progress(progress_bin_to_dna)
+        progress_bin_to_dna['value'] = 0
 
 # Convert binary string to DNA sequence
 def binary_to_dna(binary_string):
@@ -67,6 +71,7 @@ def dna_to_jpeg():
         os.rename(file_path, output_path)
         messagebox.showinfo("Conversion Successful", "DNA to JPEG conversion completed. Output file saved at: " + output_path)
         update_progress(progress_dna_to_jpeg)
+        progress_dna_to_jpeg['value'] = 0
 
 # Convert DNA to BIN
 def dna_to_bin():
@@ -83,6 +88,7 @@ def dna_to_bin():
         
         messagebox.showinfo("Conversion Successful", "DNA to BIN conversion completed. Output file saved at: " + output_path)
         update_progress(progress_dna_to_bin)
+        progress_dna_to_bin['value'] = 0
 
 # Convert DNA sequence to binary
 def dna_to_binary(dna_sequence):
@@ -98,26 +104,8 @@ def bin_to_mp3():
         os.rename(file_path, output_path)
         messagebox.showinfo("Conversion Successful", "BIN to MP3 conversion completed. Output file saved at: " + output_path)
         update_progress(progress_bin_to_mp3)
+        progress_bin_to_mp3['value'] = 0
 
-# Convert MP3 to JPEG
-def mp3_to_jpeg():
-    file_path = filedialog.askopenfilename(title="Select MP3 file to convert")
-    if file_path:
-        # Perform conversion here
-        output_path = os.path.splitext(file_path)[0] + ".jpeg"
-
-        # Update progress bar
-        progress_mp3_to_jpeg['value'] = 100
-
-        # Display the converted image
-        image = Image.open(output_path)
-        image = image.resize((400, 400))
-        photo = ImageTk.PhotoImage(image)
-        image_label.config(image=photo)
-        image_label.image = photo
-
-        # Show message box
-        messagebox.showinfo("Conversion Successful", "MP3 to JPEG conversion completed. Output file saved at: " + output_path)
 
 # Update the progress bar
 def update_progress(progress_bar):
@@ -126,7 +114,10 @@ def update_progress(progress_bar):
         progress_bar['value'] = progress
         root.update_idletasks()
         time.sleep(PROGRESS_DELAY / 1000)
-        progress += 10
+        progress += 5
+    
+   
+    
 
 # Create Menu
 my_menu = Menu(root)
@@ -160,9 +151,6 @@ button_dna_to_bin.grid(row=3, column=0, pady=5)
 button_bin_to_mp3 = Button(button_frame, text="BIN to MP3", command=bin_to_mp3)
 button_bin_to_mp3.grid(row=4, column=0, pady=5)
 
-# Convert MP3 to JPEG Button
-button_mp3_to_jpeg = Button(button_frame, text="MP3 to JPEG", command=mp3_to_jpeg, bg=button_bg_color, fg=button_fg_color, font=font_style)
-button_mp3_to_jpeg.grid(row=5, column=0, pady=5)
 
 # Progress Bars
 progress_frame = Frame(root)
@@ -183,16 +171,6 @@ progress_dna_to_bin.grid(row=3, column=0, pady=5)
 progress_bin_to_mp3 = Progressbar(progress_frame, orient=HORIZONTAL, length=200, mode='determinate', style="green.Horizontal.TProgressbar")
 progress_bin_to_mp3.grid(row=4, column=0, pady=5)
 
-progress_mp3_to_jpeg = Progressbar(progress_frame, orient=HORIZONTAL, length=200, mode='determinate', style="green.Horizontal.TProgressbar")
-progress_mp3_to_jpeg.grid(row=5, column=0, pady=5)
-
-
-# Display Converted JPEG Image
-image_frame = Frame(root, bg=bg_color)
-image_frame.grid(row=5, column=0, columnspan=2, padx=10, pady=10)
-
-image_label = Label(image_frame)
-image_label.pack()
 
 # Set initial progress to 0
 progress_mp3_to_bin['value'] = 0
@@ -200,6 +178,5 @@ progress_bin_to_dna['value'] = 0
 progress_dna_to_jpeg['value'] = 0
 progress_dna_to_bin['value'] = 0
 progress_bin_to_mp3['value'] = 0
-progress_mp3_to_jpeg['value'] = 0
 
 root.mainloop()
