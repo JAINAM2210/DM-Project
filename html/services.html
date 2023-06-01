@@ -150,7 +150,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <button onclick="dna_to_jpeg()">Convert .dna to .jpeg</button>
+        <button onclick="dnaToJpeg()">Convert DNA to JPEG</button>
       </div>
     </div>
     <div class="row">
@@ -233,50 +233,58 @@
     }
 
     // Convert DNA to JPEG
-    function dna_to_jpeg() {
-      var file_input = document.createElement("input");
-      file_input.type = "file";
-      file_input.accept = ".dna";
-      file_input.onchange = function (event) {
-        var file = event.target.files[0];
-        if (file) {
-          var reader = new FileReader();
-          reader.onload = function (e) {
-            var dna_sequence = e.target.result;
-            var image_width = 8;
-            var image_data = new Uint8ClampedArray(dna_sequence.length * image_width);
-            var nucleotide_mapping = {
-              "A": "00",
-              "T": "01",
-              "G": "10",
-              "C": "11"
-            };
-            for (var i = 0; i < dna_sequence.length; i++) {
-              var nucleotide = dna_sequence[i];
-              var bits = nucleotide_mapping[nucleotide];
-              for (var j = 0; j < bits.length; j++) {
-                var bit = parseInt(bits[j]);
-                var index = i * image_width + j;
-                image_data[index] = bit * 255;
-              }
-            }
-            var canvas = document.createElement("canvas");
-            canvas.width = image_width;
-            canvas.height = dna_sequence.length;
-            var context = canvas.getContext("2d");
-            var image_data_obj = context.createImageData(image_width, dna_sequence.length);
-            image_data_obj.data.set(image_data);
-            context.putImageData(image_data_obj, 0, 0);
-            var output_path = file.name.split(".")[0] + ".jpeg";
-            canvas.toBlob(function (blob) {
-              saveAs(blob, output_path);
-            }, "image/jpeg");
-          };
-          reader.readAsText(file);
-        }
-      };
-      file_input.click();
+    function dnaToJpeg() {
+      const fileInput = document.createElement("input");
+      fileInput.type = "file";
+      fileInput.accept = ".dna";
+      fileInput.onchange = handleFileSelection;
+      fileInput.click();
     }
+
+    function handleFileSelection(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = handleFileRead;
+        reader.readAsText(file);
+      }
+    }
+
+    function handleFileRead(event) {
+      const dnaSequence = event.target.result;
+
+      // Convert the DNA sequence to an image
+      const imageWidth = 1800; // Adjust the width of the image based on your requirements
+      const imageHeight = Math.ceil(dnaSequence.length / imageWidth);
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = imageWidth;
+      canvas.height = imageHeight;
+
+      // Map DNA bases to colors
+      const colorMapping = { A: [255, 0, 0], C: [0, 0, 255], G: [0, 255, 0], T: [255, 255, 0] };
+
+      // Assign colors to pixels
+      let pixelIndex = 0;
+      for (let i = 0; i < dnaSequence.length; i++) {
+        const base = dnaSequence[i];
+        const x = i % imageWidth;
+        const y = Math.floor(i / imageWidth);
+        const color = colorMapping[base] || [0, 0, 0];
+        ctx.fillStyle = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+        ctx.fillRect(x, y, 1, 1);
+        pixelIndex++;
+      }
+
+      // Save the image
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/jpeg");
+      link.download = "output_image.jpeg";
+      link.click();
+
+      alert("DNA to JPEG conversion completed. Output file saved as output_image.jpeg");
+    }
+
 
     // Convert BIN from DNA
 function convertFromDNA() {
