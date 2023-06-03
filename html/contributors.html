@@ -28,6 +28,37 @@
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+  <style>
+    .contributor_image {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      perspective: 1000px;
+    }
+  
+    .contributor_image img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s;
+      transform-style: preserve-3d;
+      backface-visibility: hidden; /* Add this line to hide the back face of the image */
+    }
+  
+    .contributor_image:hover img {
+      transform: rotateY(180deg);
+    }
+  
+    .contributor_image:hover .image_overlay {
+  opacity: 1;
+  background-color: #2CABE9; /* Light blue background color */
+  width: 200px;
+    height: 200px;
+}
+
+  </style>
+  
+  
 </head>
 <body>
   <!-- header top section start -->
@@ -35,11 +66,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-4">
-        </div>
-        <div class="col-sm-4">
-        </div>
-        <div class="col-sm-4">
-          <div class="call_text"><a href="#"><img src="images/mail-icon.png"><span class="call_text_left">musiotic@gmail.com</span></a></div>
+          <div class="call_text"><a href="#"><img src="images/mail-icon.png"><span class="call_text_left">Demo@gmail.com</span></a></div>
         </div>
       </div>
     </div>
@@ -87,92 +114,131 @@
   <div class="contributors_section">
     <div class="container">
       <div class="row">
-       <!-- Contributor 1 -->
-       <div class="col-md-4">
-        <div class="contributor_item">
-          <div class="contributor_image">
-            <img src="images/IMG_20230524_171255 - Swayam Hingu.jpg" alt="Contributor 1" style="width: 200px; height: 200px;">
+        <div class="col-md-12 text-center">
+            <h1 style="color: red; font-size: 36px;">TEAM MUSIOTIC</h1>
           </div>
-          <div class="contributor_info">
-            <h3>Swayam Hingu</h3>
-            <a href="https://www.linkedin.com/in/swayam-hingu-b47a02248" target="_blank">LinkedIn Profile</a>
-            <p>Email: 202201207@daiict.ac.in</p>
-            
-          </div>
-        </div>
+          
       </div>
+      <div class="row">
+        <!-- Contributor 1 -->
+        <div class="col-md-4">
+            <div class="contributor_item">
+              <div class="contributor_image" :hover>
+                <img src="images/IMG_20230524_171255 - Swayam Hingu.jpg" alt="Contributor 1" style="width: 200px; height: 200px;">
+                <div class="image_overlay">
+                <div class="contributor_info">
+                    <div class="text-center">
+                        <a href="https://www.linkedin.com/in/swayam-hingu-b47a02248" target="_blank" style="color: red;">LinkedIn Profile</a>
+                        <p style="color: red;">Email: 202201207@daiict.ac.in</p>                        
+                  </div>
+                  </div>
+                </div>
+                </div>
+                <div class="contributor_info">
+                    <h3>Swayam Hingu</h3>
+              </div>
+            </div>
+          </div>
 
         <!-- Contributor 2 -->
         <div class="col-md-4">
-          <div class="contributor_item">
-            <div class="contributor_image">
-              <img src="images/1667273990853.jpeg" alt="Contributor 2" style="width: 200px; height: 200px;">
-            </div>
-            <div class="contributor_info">
-              <h3>Heer Shah</h3>
-              <a href="https://www.linkedin.com/in/heer-shah-9bb15a15a/" target="_blank">LinkedIn Profile</a>
-              <p>Email: 202201525@daiict.ac.in</p>
-              
+            <div class="contributor_item">
+              <div class="contributor_image" :hover>
+                <img src="images/1667273990853.jpeg" alt="Contributor 2" style="width: 200px; height: 200px;">
+                <div class="image_overlay">
+                <div class="contributor_info">
+                    <div class="text-center">
+                        <a href="https://www.linkedin.com/in/heer-shah-9bb15a15a/" target="_blank" style="color: red;">LinkedIn Profile</a>
+                        <p style="color: red;">Email: 202201525@daiict.ac.in</p>                        
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="contributor_info">
+                <h3>Heer Shah</h3>
+              </div>
             </div>
           </div>
-        </div>
+          
 
         <!-- Contributor 3 -->
         <div class="col-md-4">
-          <div class="contributor_item">
-            <div class="contributor_image">
-              <img src="images/WhatsApp Image 2023-05-25 at 22.31.46.jpg" alt="Contributor 3" style="width: 200px; height: 200px;">
-            </div>
-            <div class="contributor_info">
-              <h3>Jainam Patel</h3>
-              <a href="https://www.linkedin.com/in/jainam-patel-854a32252/" target="_blank">LinkedIn Profile</a>
-              <p>Email: 202201514@daiict.ac.in</p>
-              
+            <div class="contributor_item" style="margin-bottom: 20px;">
+            <div class="contributor_image" :hover>
+              <img src="images/WhatsApp Image 2023-05-25 at 22.31.46.jpg" alt="Contributor 3"  style="width: 200px; height: 200px;">
+              <div class="image_overlay">
+              <div class="contributor_info">
+                <div class="text-center">
+                    <a href="https://www.linkedin.com/in/jainam-patel-854a32252/" target="_blank" style="color: red;">LinkedIn Profile</a>
+                    <p style="color: red;">Email: 202201514@daiict.ac.in</p>
+                    
+                </div>
+                </div>
+              </div>
+              </div>
+              <div class="contributor_info">
+                <h3>Jainam Patel</h3>
             </div>
           </div>
         </div>
 
         <!-- Contributor 4 -->
         <div class="col-md-4">
-          <div class="contributor_item">
-            <div class="contributor_image">
+            <div class="contributor_item" style="margin-bottom: 20px;">
+            <div class="contributor_image": hover>
               <img src="images/Dphoto - Nita Thakkar.jpg" alt="Contributor 4" style="width: 200px; height: 200px;">
-            </div>
-            <div class="contributor_info">
-              <h3>Dishank Thakkar</h3>
-              <a href="https://www.linkedin.com" target="_blank">LinkedIn Profile</a>
-              <p>Email: 202201518@daiict.ac.in</p>
-              
+              <div class="image_overlay">
+              <div class="contributor_info">
+                <div class="text-center">
+                    <a href="http://www.linkedin.com/in/dishank-thakkar-835650279" target="_blank" style="color: red;">LinkedIn Profile</a>
+                    <p style="color: red;">Email: 202201518@daiict.ac.in</p>                    
+                </div>
+                </div>
+              </div>
+              </div>
+              <div class="contributor_info">
+                <h3>Dishank Thakkar</h3>
             </div>
           </div>
         </div>
 
         <!-- Contributor 5 -->
         <div class="col-md-4">
-          <div class="contributor_item">
-            <div class="contributor_image">
+            <div class="contributor_item" style="margin-bottom: 20px;">
+            <div class="contributor_image" :hover>
               <img src="images/WhatsApp Image 2023-05-24 at 18.48.18.jpg" alt="Contributor 5" style="width: 200px; height: 200px;">
-            </div>
-            <div class="contributor_info">
-              <h3>Tasmay Patel</h3>
-              <a href="https://www.linkedin.com/in/tasmay-patel-8a2125252" target="_blank">LinkedIn Profile</a>
-              <p>Email: 202201129@daiict.ac.in</p>
-              
+              <div class="image_overlay">
+              <div class="contributor_info">
+                <div class ="text-center">
+                    <a href="https://www.linkedin.com/in/tasmay-patel-8a2125252" target="_blank" style="color: red;">LinkedIn Profile</a>
+                    <p style="color: red;">Email: 202201129@daiict.ac.in</p>                    
+                </div>
+                </div>
+              </div>
+              </div>
+              <div class="contributor_info">
+                <h3>Tasmay Patel</h3>
+                
             </div>
           </div>
         </div>
 
         <!-- Contributor 6 -->
         <div class="col-md-4">
-          <div class="contributor_item">
-            <div class="contributor_image">
+            <div class="contributor_item" style="margin-bottom: 20px;">
+            <div class="contributor_image" :hover>
               <img src="images/IMG_20230409_111511 - Heman Chauhan.jpg" alt="Contributor 6" style="width: 200px; height: 200px;">
-            </div>
-            <div class="contributor_info">
-              <h3>Heman Rajput</h3>
-              <a href="https://www.linkedin.com/in/codeforhr" target="_blank">LinkedIn Profile</a>
-              <p>Email: 202201267@daiict.ac.in</p>
-              
+            <div class="image_overlay">
+                <div class="contributor_info">
+                    <div class="text-center">
+                        <a href="https://www.linkedin.com/in/codeforhr" target="_blank" style="color: red;">LinkedIn Profile</a>
+                        <p style="color: red;">Email: 202201267@daiict.ac.in</p>                        
+                </div>
+                </div>
+              </div>
+              </div>
+              <div class="contributor_info">
+                <h3>Heman Rajput</h3>
             </div>
           </div>
         </div>
@@ -180,9 +246,8 @@
     </div>
   </div>
   <!-- contributors section end -->
-
-  <!-- copyright section start -->
-  <div class="copyright_section">
+<!-- copyright section start -->
+<div class="copyright_section">
     <div class="container">
       <p class="copyright">2023 All Rights Reserved.</p>
     </div>
