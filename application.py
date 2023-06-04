@@ -573,16 +573,6 @@ progress_dna_to_jpeg = Progressbar(main_f, orient=HORIZONTAL, length=200, mode='
 
 progress_dna_to_jpeg.grid(row=13, column=3,padx=20, pady=7, columnspan=3)
 
-
-# #set initial progress to 0
-# progress_mp3_to_dna['value'] = 0
-# progress_dna_to_mp3['value'] = 0
-# progress_mp3_to_bin['value'] = 0
-# progress_bin_to_dna['value'] = 0
-# progress_dna_to_jpeg['value'] = 0
-# progress_dna_to_bin['value'] = 0
-# progress_bin_to_mp3['value'] = 0
-
 #create frame for function to mp3 feature 
 f_frame = Frame(root,bg="#fdffff")
 f_frame.pack(expand=True,fill=BOTH,padx=1,pady=1,side="left")
